@@ -179,6 +179,37 @@
 }
 
 
+/*Review card*/
+.carousel-card-reviews {
+    flex: 0 0 180px;
+    height: 400px;
+    width: 500px;
+    border-radius: 15px;
+    border-color: #0d47a1;
+    background: linear-gradient(135deg, #1e90ff, #0d47a1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow: hidden;
+    user-select: none;
+    margin-right: 10px;
+}
+
+.carousel-card-reviews:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+    box-shadow: #0d47a1;
+}
+
+.carousel-logo-reviews {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--bg-main);
