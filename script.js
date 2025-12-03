@@ -129,6 +129,24 @@ document.getElementById("contactForm")?.addEventListener("submit", async (e) => 
     button.innerText = "Send Message";
 });
 
+// Highlight Active Nav Link Automatically
+const currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll("nav a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+
+    // For multi-page (streamingapps.html, index.html, etc.)
+    if (linkPage === currentPage) {
+        link.classList.add("active");
+    }
+
+    // For same-page sections (#live, #contact, etc.)
+    if (linkPage.startsWith("#") && window.location.hash === linkPage) {
+        link.classList.add("active");
+    }
+});
+
+
 
 
 

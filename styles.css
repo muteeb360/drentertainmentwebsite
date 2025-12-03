@@ -359,7 +359,7 @@ body {
 
 /* Channel count text */
 .channel-count-wrapper {
-    margin: 30px auto 0;
+    margin: 30px auto;
     text-align: center;
     position: relative;
     width: 100%;
@@ -417,7 +417,7 @@ body {
 
 @media (max-width: 480px) {
     .channel-count-wrapper {
-        margin: 20px auto 0;
+        margin: 30px auto;
     }
 
     .channel-count-wrapper::before,
@@ -740,6 +740,29 @@ nav a {
 
 nav a:hover {
     color: #1e90ff;
+}
+
+/* ACTIVE NAV LINK */
+nav a.active {
+    color: #1e90ff !important;
+    font-weight: 700;
+    position: relative;
+}
+
+nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1e90ff;
+    border-radius: 2px;
+}
+
+.mobile-nav a.active {
+    color: #1e90ff !important;
+    border-bottom: 1px solid rgba(30,144,255,0.4);
 }
 
 .auth-buttons {
@@ -1139,6 +1162,133 @@ footer {
     border-top: 1px solid rgba(233, 30, 99, 0.2);
     color: #999;
 }
+
+/* ===========================
+   STREAMING APPS PAGE UI
+   =========================== */
+
+.apps-section {
+    max-width: 1300px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.apps-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e90ff;
+    margin-bottom: 40px;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* APP CARD */
+.app-card {
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 25px 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 0 20px rgba(30,144,255,0.15);
+}
+
+.app-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(30,144,255,0.4);
+    border-color: #1e90ff;
+}
+
+/* Logo */
+.app-logo {
+    width: 90px;              /* consistent width */
+    height: 90px;             /* consistent height */
+    object-fit: contain;      /* keep the proportions */
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 12px;
+    margin: 0 auto 15px auto;
+    display: block;
+    background: aliceblue;
+}
+
+/* Name */
+.app-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+/* Description */
+.app-desc {
+    font-size: 14px;
+    color: #c7d0dd;
+    margin-bottom: 18px;
+}
+
+/* BUY BUTTON */
+.app-buy-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1e90ff, #0d47a1);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.app-buy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(30,144,255,0.4);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .apps-title {
+        color: #1e90ff;
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+
+    .app-card {
+        padding: 18px;
+    }
+
+    .app-logo {
+        width: 80px;
+        background-color: aliceblue;
+    }
+}
+
+@media (max-width: 480px) {
+    .apps-title {
+        color: #1e90ff;
+        font-size: 26px;
+        font-weight: 600;
+        padding-bottom: 40px;
+    }
+
+    .app-card {
+        padding: 18px;
+    }
+
+    .app-logo {
+        width: 80px;
+        background-color: aliceblue;
+    }
+}
+
+
 
 /* Responsive */
 @media (max-width: 1024px) {
