@@ -136,3 +136,4 @@ document.getElementById("contactForm")?.addEventListener("submit", async (e) => 
 new InfiniteCarousel("channelTrack");
 new InfiniteCarousel("moviesTrack");
 new InfiniteCarousel("bannersTrack");
+new InfiniteCarousel("reviewsTrack");
