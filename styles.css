@@ -1164,7 +1164,7 @@ footer {
 }
 
 /* ===========================
-   STREAMING APPS PAGE UI
+   STREAMING APPS PAGE UI & Pro Tools and Ai Subs
    =========================== */
 
 .apps-section {
@@ -1185,6 +1185,13 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
+}
+
+.apps-title-tools {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e90ff;
+    margin-bottom: 40px;
 }
 
 /* APP CARD */
@@ -1253,6 +1260,12 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
+    .apps-title-tools {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e90ff;
+    margin-bottom: 40px;
+}
     .apps-title {
         color: #1e90ff;
         font-size: 26px;
@@ -1271,6 +1284,13 @@ footer {
 }
 
 @media (max-width: 480px) {
+.apps-title-tools {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e90ff;
+    margin-bottom: 40px;
+}
+
     .apps-title {
         color: #1e90ff;
         font-size: 26px;
