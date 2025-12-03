@@ -33,6 +33,13 @@ document.querySelectorAll(".btn-buy").forEach(btn => {
     });
 });
 
+document.querySelectorAll(".btn-hero").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const msg = encodeURIComponent(btn.dataset.message);
+        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+    });
+});
+
 document.querySelectorAll(".btn-trial").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
