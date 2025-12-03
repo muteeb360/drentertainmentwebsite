@@ -18,6 +18,28 @@ if (hamburger) {
     });
 }
 
+// WhatsApp Buy Button functionality
+document.querySelectorAll(".app-buy-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const msg = encodeURIComponent(btn.dataset.message);
+        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+    });
+});
+
+document.querySelectorAll(".btn-buy").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const msg = encodeURIComponent(btn.dataset.message);
+        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+    });
+});
+
+document.querySelectorAll(".btn-trial").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const msg = encodeURIComponent(btn.dataset.message);
+        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+    });
+});
+
 // Carousel Drag/Swipe functionality
 class InfiniteCarousel {
     constructor(trackId) {
