@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review | DR Entertainment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">🎬 DR Entertainment</div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="nav-desktop">
+                <a href="index.html">Home</a>
+                <a href="streamingapp.html">Streaming Apps</a>
+                <a href="professionaltools.html">Professional Tools & Ai Subscriptions</a>
+                <a href="referral.html">Referral Reward</a>
+                <a href="index.html#customer-reviews">Reviews</a>
+                <a href="index.html#contact">Contact Us</a>
+            </nav>
+
+            <nav class="mobile-nav" id="nav-mobile">
+                <a href="index.html">Home</a>
+                <a href="streamingapp.html">Streaming Apps</a>
+                <a href="professionaltools.html">Professional Tools & Ai Subscriptions</a>
+                <a href="referral.html">Referral Reward</a>
+                <a href="index.html#customer-reviews">Reviews</a>
+                <a href="index.html#contact">Contact Us</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <button class="btn btn-primary" data-message="Hi, I want to Buy Ibo Player App!">Order Now</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="contact-section review-form-section">
+        <div class="contact-card">
+            <h1 class="contact-title">Write a Review</h1>
+            <p class="contact-about">
+                Share your experience with DR Entertainment. Reviews are checked before they appear on the site.
+            </p>
+
+            <form class="contact-form" id="reviewForm">
+                <div class="input-group">
+                    <label for="reviewName">Your Name</label>
+                    <input type="text" id="reviewName" name="name" maxlength="60" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Rating</label>
+                    <div class="star-rating" id="starRating" role="radiogroup" aria-label="Rating">
+                        <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+                        <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+                        <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+                        <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+                        <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+                    </div>
+                    <input type="hidden" id="reviewRating" name="rating" value="5">
+                    <small class="rating-hint" id="ratingHint">5 - Excellent</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" name="text" maxlength="500" rows="5"
+                        placeholder="Tell us what you liked..." required></textarea>
+                    <small class="char-hint"><span id="charCount">0</span>/500</small>
+                </div>
+
+                <button type="submit" class="contact-submit" id="reviewSubmitBtn">Submit Review</button>
+                <p class="form-status" id="reviewStatus" hidden></p>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/share/17kjHxLvzM/">Facebook</a></li>
+                    <li><a href="https://www.tiktok.com/@drxentertainment?_r=1&_t=ZN-91w5x7KA330">TikTok</a></li>
+                    <li><a href="https://www.instagram.com/drentertainment0426?igsh=MXhuY3cyZmNjdmhyaA==">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li><a href="write-review.html">Write a Review</a></li>
+                    <li><a>Whats App: +447723150061</a></li>
+                    <li><a>Whats App: +447460006494</a></li>
+                    <li><a>Email: drentertainmentcontact@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DR Entertainment. All rights reserved. Premium IBO Player Streaming Service.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById("reviewForm");
+        const statusEl = document.getElementById("reviewStatus");
+        const submitBtn = document.getElementById("reviewSubmitBtn");
+        const textEl = document.getElementById("reviewText");
+        const charCount = document.getElementById("charCount");
+        const ratingInput = document.getElementById("reviewRating");
+        const starButtons = Array.from(document.querySelectorAll(".star-btn"));
+        const ratingHint = document.getElementById("ratingHint");
+        const ratingLabels = {
+            1: "1 - Poor",
+            2: "2 - Fair",
+            3: "3 - Good",
+            4: "4 - Great",
+            5: "5 - Excellent"
+        };
+
+        let selectedRating = 5;
+
+        function paintStars(rating, hover) {
+            const active = hover || rating;
+            starButtons.forEach((btn) => {
+                const value = parseInt(btn.dataset.value, 10);
+                btn.classList.toggle("active", value <= active);
+            });
+        }
+
+        function setRating(rating) {
+            selectedRating = rating;
+            ratingInput.value = String(rating);
+            ratingHint.textContent = ratingLabels[rating];
+            paintStars(rating);
+        }
+
+        starButtons.forEach((btn) => {
+            const value = parseInt(btn.dataset.value, 10);
+
+            btn.addEventListener("click", () => setRating(value));
+            btn.addEventListener("mouseenter", () => paintStars(selectedRating, value));
+            btn.addEventListener("mouseleave", () => paintStars(selectedRating));
+            btn.addEventListener("focus", () => paintStars(selectedRating, value));
+            btn.addEventListener("blur", () => paintStars(selectedRating));
+        });
+
+        setRating(5);
+
+        textEl.addEventListener("input", () => {
+            charCount.textContent = textEl.value.length;
+        });
+
+        function showStatus(message, type) {
+            statusEl.hidden = false;
+            statusEl.textContent = message;
+            statusEl.className = "form-status " + type;
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("reviewName").value.trim();
+            const rating = selectedRating;
+            const text = textEl.value.trim();
+
+            if (!name || name.length > 60) {
+                showStatus("Please enter a name (max 60 characters).", "error");
+                return;
+            }
+            if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
+                showStatus("Please choose a rating from 1 to 5.", "error");
+                return;
+            }
+            if (!text || text.length > 500) {
+                showStatus("Please enter a review (max 500 characters).", "error");
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+
+            try {
+                await db.collection("reviews").add({
+                    name,
+                    rating,
+                    text,
+                    approved: false,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                form.reset();
+                charCount.textContent = "0";
+                setRating(5);
+                showStatus("Thanks! Your review was submitted and is waiting for approval.", "success");
+            } catch (err) {
+                console.error(err);
+                showStatus("Could not submit your review. Please try again.", "error");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit Review";
+            }
+        });
+    </script>
+</body>
+
+</html>

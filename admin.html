@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reviews | DR Entertainment</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body class="admin-body">
+    <main class="admin-wrap">
+        <section class="contact-card admin-card" id="loginPanel">
+            <h1 class="contact-title">Review Admin</h1>
+            <p class="contact-about">Sign in with the admin account to approve or reject reviews.</p>
+
+            <form class="contact-form" id="adminLoginForm">
+                <div class="input-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" required autocomplete="username">
+                </div>
+                <div class="input-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="contact-submit" id="loginBtn">Sign In</button>
+                <p class="form-status" id="loginStatus" hidden></p>
+            </form>
+        </section>
+
+        <section class="admin-dashboard" id="dashboardPanel" hidden>
+            <div class="admin-toolbar">
+                <div>
+                    <h1 class="contact-title admin-title">Pending Reviews</h1>
+                    <p class="admin-user" id="adminUserEmail"></p>
+                </div>
+                <button type="button" class="admin-logout-btn" id="logoutBtn">Sign Out</button>
+            </div>
+
+            <div class="admin-tabs">
+                <button type="button" class="admin-tab active" data-filter="pending">Pending</button>
+                <button type="button" class="admin-tab" data-filter="approved">Approved</button>
+            </div>
+
+            <p class="fb-reviews-loading" id="adminLoading">Loading reviews...</p>
+            <p class="fb-reviews-empty" id="adminEmpty" hidden>No reviews in this list.</p>
+            <div class="admin-list" id="adminList"></div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

@@ -22,42 +22,42 @@ if (hamburger) {
 document.querySelectorAll(".app-buy-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
-        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+        window.open("https://wa.me/447723150061?text=" + msg, "_blank");
     });
 });
 
 document.querySelectorAll(".btn-buy").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
-        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+        window.open("https://wa.me/447723150061?text=" + msg, "_blank");
     });
 });
 
 document.querySelectorAll(".btn-hero").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
-        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+        window.open("https://wa.me/447723150061?text=" + msg, "_blank");
     });
 });
 
 document.querySelectorAll(".missing-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
-        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+        window.open("https://wa.me/447723150061?text=" + msg, "_blank");
     });
 });
 
 document.querySelectorAll(".btn").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
-        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+        window.open("https://wa.me/447723150061?text=" + msg, "_blank");
     });
 });
 
 document.querySelectorAll(".btn-trial").forEach(btn => {
     btn.addEventListener("click", () => {
         const msg = encodeURIComponent(btn.dataset.message);
-        window.open("https://wa.me/447930653655?text=" + msg, "_blank");
+        window.open("https://wa.me/447723150061?text=" + msg, "_blank");
     });
 });
 

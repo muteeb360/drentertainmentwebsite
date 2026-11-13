@@ -25,6 +25,7 @@
                 <a href="streamingapp.html">Streaming Apps</a>
                 <a href="professionaltools.html">Professional Tools & Ai Subscriptions</a>
                 <a href="referral.html">Referral Reward</a>
+                <a href="#customer-reviews">Reviews</a>
                 <a href="#contact">Contact Us</a>
             </nav>
 
@@ -33,6 +34,7 @@
                 <a href="streamingapp.html">Streaming Apps</a>
                 <a href="professionaltools.html">Professional Tools & Ai Subscriptions</a>
                 <a href="referral.html">Referral Reward</a>
+                <a href="#customer-reviews">Reviews</a>
                 <a href="#contact">Contact Us</a>
             </nav>
 
@@ -42,7 +44,7 @@
         </div>
     </header>
 
-    <a href="https://wa.me/447930653655?text=Hello%20I%20need%20help%20with%20your%20services" class="whatsapp-float"
+    <a href="https://wa.me/447723150061?text=Hello%20I%20need%20help%20with%20your%20services" class="whatsapp-float"
         target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-icon">
     </a>
@@ -384,6 +386,22 @@
         </div>
     </div>
 
+    <!-- Approved Firebase Reviews -->
+    <section class="fb-reviews-section" id="customer-reviews">
+        <div class="channel-count-wrapper">
+            <span class="review-text">What Customers Say</span>
+        </div>
+        <p class="review-subtext">
+            Real feedback from customers. Want to share yours?
+            <a class="write-review-link" href="write-review.html">Write a Review</a>
+        </p>
+        <div class="container">
+            <p class="fb-reviews-loading" id="firebaseReviewsLoading">Loading reviews...</p>
+            <p class="fb-reviews-empty" id="firebaseReviewsEmpty" hidden>No approved reviews yet. Be the first to share your experience.</p>
+            <div class="fb-reviews-grid" id="firebaseReviewsList"></div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="footer">
         <div class="footer-content">
@@ -400,7 +418,9 @@
                 <h3>Support</h3>
                 <ul>
                     <li><a href="index.html#contact">Contact Us</a></li>
-                    <li><a>Whats App: +44 7930 653655</a></li>
+                    <li><a href="write-review.html">Write a Review</a></li>
+                    <li><a>Whats App: +447723150061</a></li>
+                    <li><a>Whats App: +447460006494</a></li>
                     <li><a>Email: drentertainmentcontact@gmail.com</a></li>
                 </ul>
             </div>
@@ -409,7 +429,12 @@
             <p>&copy; 2025 DR Entertainment. All rights reserved. Premium IBO Player Streaming Service.</p>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
     <script src="script.js"></script>
+    <script src="reviews-public.js"></script>
 </body>
 
 </html>
